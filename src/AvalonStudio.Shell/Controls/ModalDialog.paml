@@ -2,7 +2,7 @@
               xmlns:controls="clr-namespace:AvalonStudio.Shell.Controls;assembly=AvalonStudio.Shell"                            
               xmlns:cont="clr-namespace:AvalonStudio.Controls;assembly=AvalonStudio.Shell.Extensibility"              
               Background="{DynamicResource ThemeControlDarkBrush}"
-              Icon="resm:AvalonStudio.Shell.Assets.logo-256.png?assembly=AvalonStudio.Shell"
+              Icon="{Binding Icon}"
               Title="{Binding Title}" BorderThickness="1" BorderBrush="{DynamicResource AvalonBorderBrush}"
               FontFamily="{DynamicResource UiFont}" FontSize="14" Foreground="{DynamicResource ThemeForegroundBrush}"
               SizeToContent="WidthAndHeight">

@@ -1,6 +1,9 @@
 using ReactiveUI;
 using System;
 using System.Threading.Tasks;
+using Avalonia;
+using Avalonia.Controls;
+using Avalonia.Platform;
 
 namespace AvalonStudio.Extensibility.Dialogs
 {
@@ -14,9 +17,11 @@ namespace AvalonStudio.Extensibility.Dialogs
 
 		private string title;
 
-		private TaskCompletionSource<bool> dialogCloseCompletionSource;
+	    private WindowIcon icon;
 
-		public ModalDialogViewModelBase(string title, bool okayButton = true, bool cancelButton = true)
+        private TaskCompletionSource<bool> dialogCloseCompletionSource;
+
+		public ModalDialogViewModelBase(string title, bool okayButton = true, bool cancelButton = true, string iconUri = null)
 		{
 			OKButtonVisible = okayButton;
 			CancelButtonVisible = cancelButton;
@@ -25,7 +30,14 @@ namespace AvalonStudio.Extensibility.Dialogs
 			this.title = title;
 
 			CancelCommand = ReactiveCommand.Create(() => Close(false));
-		}
+
+		    if (!string.IsNullOrEmpty(iconUri))
+		    {
+		        var loader = AvaloniaLocator.Current.GetService<IAssetLoader>();
+                var iconStream = loader.Open(new Uri(iconUri));
+		        this.icon = new WindowIcon(iconStream);
+		    }
+        }
 
 		public bool CancelButtonVisible
 		{
@@ -39,8 +51,8 @@ namespace AvalonStudio.Extensibility.Dialogs
 			set { this.RaiseAndSetIfChanged(ref okayButtonVisible, value); }
 		}
 
-		public virtual ReactiveCommand OKCommand { get; protected set; }
-		public ReactiveCommand CancelCommand { get; }
+	    public virtual ReactiveCommand OKCommand { get; protected set; }
+        public ReactiveCommand CancelCommand { get; }
 
 		public string Title
 		{
@@ -48,13 +60,19 @@ namespace AvalonStudio.Extensibility.Dialogs
 			private set { this.RaiseAndSetIfChanged(ref title, value); }
 		}
 
-		public bool IsVisible
+	    public WindowIcon Icon
+	    {
+	        get { return icon; }
+	        private set { this.RaiseAndSetIfChanged(ref icon, value); }
+	    }
+
+        public bool IsVisible
 		{
 			get { return isVisible; }
 			set { this.RaiseAndSetIfChanged(ref isVisible, value); }
 		}
 
-		public Task<bool> ShowDialogAsync()
+        public Task<bool> ShowDialogAsync()
 		{
 			IsVisible = true;
 
