@@ -4,6 +4,8 @@ using AvalonStudio.Extensibility;
 using AvalonStudio.Shell.Extensibility.Platforms;
 using Dock.Model;
 using System;
+using Avalonia.Threading;
+using AvalonStudio.Extensibility.Theme;
 
 namespace AvalonStudio.Shell
 {
@@ -26,5 +28,5 @@ namespace AvalonStudio.Shell
 				ShellViewModel.Instance.Initialise(layoutFactory);
 			}).Start<TMainWindow>(dataContextProvider);
 		}
-	}
+    }
 }
