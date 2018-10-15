@@ -26,13 +26,6 @@
       <Setter Property="Background" Value="{DynamicResource ApplicationAccentBrush}" />
     </Style>
 
-    <Style Selector="TreeViewItem:selected /template/ ContentPresenter#PART_HeaderPresenter">
-      <Setter Property="Background" Value="{DynamicResource ApplicationAccentBrush}" />
-    </Style>
-    <Style Selector="TreeViewItem:selected /template/ ContentPresenter#PART_HeaderPresenter">
-      <Setter Property="TextBlock.Foreground" Value="{DynamicResource ApplicationAccentForegroundBrush}" />
-    </Style>
-
     <Style Selector="DropDownItem:selected /template/ ContentPresenter">
       <Setter Property="Background" Value="{DynamicResource ApplicationAccentBrush}" />
     </Style>
@@ -78,17 +71,14 @@
 
     <Grid Grid.ColumnSpan="5" Margin="0 0 0 0">
       <Grid RowDefinitions="Auto, Auto">
-        <menu:MainMenuView DataContext="{Binding MainMenu}" Margin="5 4 0 0"  Foreground="{DynamicResource ThemeForegroundBrush}" />
+        <menu:MainMenuView DataContext="{Binding MainMenu}" Margin="10 4 0 0"  Foreground="{DynamicResource ThemeForegroundBrush}" />
 
-        <cont:ToolBar DataContext="{Binding StandardToolbar}" Grid.Row="1" Margin="15 4 0 4" />
+        <cont:ToolBar DataContext="{Binding StandardToolbar}" Grid.Row="1" Margin="15 4 4 0" />
       </Grid>
     </Grid>
 
     <Grid Grid.Row="1" Margin="6 2">
       <idc:DockControl DataContext="{Binding Root}" Margin="4" />
-    </Grid>
-
-    <Grid Grid.RowSpan="2" Grid.ColumnSpan="5" Name="PART_ExtensibleOverlay">
     </Grid>
     <!--<cont:QuickCommander Width="450" MaxHeight="500" DataContext="{Binding QuickCommander}" VerticalAlignment="Top" />-->
   </Grid>

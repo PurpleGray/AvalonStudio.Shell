@@ -1,21 +1,19 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <LangVersion>7.1</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="**\*.xaml.cs">
-      <DependentUpon>%(Filename)</DependentUpon>
-    </Compile>
+    <Compile Update="**\*.xaml.cs" DependentUpon="%(Filename)" />
     <EmbeddedResource Include="**\*.xaml;**\*.paml;Assets\*" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Avalonia" Version="0.6.2-build5984-beta" />
-    <PackageReference Include="Avalonia.ReactiveUI" Version="0.6.2-build5984-beta" />
-    <PackageReference Include="Avalonia.Xaml.Behaviors" Version="0.6.2-build536" />
-    <PackageReference Include="Avalonia.Xaml.Interactions.Custom" Version="0.6.2-build536" />
-    <PackageReference Include="reactiveui" Version="8.0.1" />
-  </ItemGroup>
+    <PackageReference Include="Avalonia" />
+    <PackageReference Include="Avalonia.ReactiveUI" />
+    <PackageReference Include="Avalonia.Xaml.Behaviors" />
+    <PackageReference Include="Avalonia.Xaml.Interactions.Custom" />
+    <PackageReference Include="ReactiveUI" />
+  </ItemGroup>  
+
   <ItemGroup>
     <ProjectReference Include="..\..\Dock\src\Dock.Avalonia\Dock.Avalonia.csproj" />
     <ProjectReference Include="..\..\Dock\src\Dock.Model.ReactiveUI\Dock.Model.ReactiveUI.csproj" />
