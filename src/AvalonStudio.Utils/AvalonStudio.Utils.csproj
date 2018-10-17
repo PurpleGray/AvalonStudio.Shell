@@ -5,7 +5,7 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Avalonia.Xaml.Behaviors" />
-    <PackageReference Include="Avalonia.Xaml.Interactions" />
-    <PackageReference Include="Avalonia.Xaml.Interactions.Custom" />
+    <PackageReference Include="Avalonia.Xaml.Interactions" Version="0.6.2-build560" />
+    <PackageReference Include="Avalonia.Xaml.Interactions.Custom" Version="0.6.2-build560" />
   </ItemGroup>
 </Project>

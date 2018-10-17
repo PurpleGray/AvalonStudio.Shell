@@ -1,7 +1,7 @@
 <Project>
 
   <PropertyGroup>
-    <AvaloniaBehaviorsVersion>0.6.2-build536</AvaloniaBehaviorsVersion>
+    <AvaloniaBehaviorsVersion>0.6.2-build560</AvaloniaBehaviorsVersion>
     <AvaloniaVersion>0.6.2-build6379-beta</AvaloniaVersion>
     <NewtonsoftJsonVersion>10.0.3</NewtonsoftJsonVersion>
     <ReactiveUIVersion>9.0.1</ReactiveUIVersion>
